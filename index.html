@@ -1,0 +1,62 @@
+<html>
+<center>
+<head>
+<title>Caesars Cipher</title>
+</head>
+
+<body>
+<h1>Caesars Cipher</h1>
+
+<form>
+	Enter an offset: <br>
+	<input type ="text" id = "offset" size = "27">
+</form>
+<button onclick = "Offset()">Submit</button>
+
+<form>
+	Enter a message to encrypt: <br>
+	<input type = "text" id = "msg" size = "27">
+</form>
+<button onclick = "Caesars_Cipher()">Submit</button>
+
+<script>
+
+var offset;
+var ciphertext;
+
+function Offset() {
+offset = document.getElementById("offset").value;
+}
+
+function Caesars_Cipher() {
+var message = document.getElementById("msg").value;
+
+ciphertext = [];
+
+for (var i = 0; i < message.length; i++) {
+var chr = message.charAt(i);
+if (chr == " ") {
+ciphertext.push(" ");
+
+} else { 
+chr = message.charCodeAt(i);
+chrshift = chr + Number(offset) 
+newchr = String.fromCharCode(chrshift);
+ciphertext.push(newchr);
+
+}
+}
+newmsg = ciphertext.join('');
+var ct = newmsg.fontcolor("red")
+ct = ct.fontsize(50);
+var mes = ("Your Encrypted Message Is:<br>")
+mes = mes.fontsize(50);
+document.write(mes + ct);
+
+}
+
+</script>
+
+</body>
+</center>
+</html>
